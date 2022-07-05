@@ -37,11 +37,24 @@ function ContextProvider(props) {
     setCartItems(filtered)
   }
 
+  function emptyCart() {
+    setCartItems([])
+  }
+
+  function totalCost() {
+    let total = 0;
+    for(let i = 0; i < cartItems.length; i++) {
+      total += 5.99
+    }
+
+    return total
+  }
+
   console.log(cartItems)
 
   return (
     <Context.Provider 
-      value={{allPhotos, toggleFavourite, cartItems, addItem, removeItem}}
+      value={{allPhotos, toggleFavourite, cartItems, addItem, removeItem, totalCost, emptyCart}}
     >
       {props.children}
     </Context.Provider>
